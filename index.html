@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form Rekruitasi Pegawai Neuronworks Indonesia</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="head">
+        <nav class="list">
+            <a href="https://neuronworks.co.id">
+                <img class="gambar-header" src="img/nw-horizontal.png">
+            </a>
+        </nav>
+        <div>
+            <div>
+                <div class="form-rekruitasi">
+                    <div class="form-rec">
+                        <div>
+                            <img class="logo-rekruitasi" src="img/logomark-sign.png">
+                        </div>
+                    </div>
+                    <div class="form-desc">
+                        <h3>Form Rekrutasi</h3>
+                        <p>Isi data di bawah sesuai dengan identitas diri anda dan lowongan yang akan anda pilih
+                        </p>
+                    </div>
+                    <div class="form-fullname">
+                        <label>Fullname<span class="alert">*</span></label>
+                        <input type="text" class="form-control" id="fullname" placeholder="Masukkan nama">
+                    </div>
+                    <div class="form-email">
+                        <label>Email<span class="alert">*</span></label>
+                        <input type="text" class="form-control" id="email" placeholder="Masukkan email">
+                    </div>
+                    <div class="form-nomortelepon">
+                        <label>Nomor Telepon<span class="alert">*</span></label>
+                        <input type="text" class="form-control" id="nomortelepon" placeholder="Masukkan nomor telepon">
+                    </div>
+                    <div class="form-lowongan">
+                        <label>Lowongan<span class="alert">*</span></label>
+                        <select class="form-control" id="lowongan">
+                            <option>- Pilih Lowongan -
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-posisi">
+                        <label>Posisi Daerah Kerja<span class="alert">*</span></label>
+                        <select class="form-control" id="posisi">
+                            <option>- Pilih Posisi -
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-submit">
+                        <button class="button-26" type="submit" id="btnSubmit" class="" data-toggle="modal"
+                            data-target="#myModal">Kirim</button>
+                    </div>
+                    <div class="form-sosmed">
+                        <a class="icon-sosmed" href="https://instagram.com/neuronworks">
+                            <i class="fab fa-instagram-square"></i>
+                        </a>
+                        <a class="icon-sosmed" href="https://www.youtube.com/@NeuronworksIndonesia">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a class="icon-sosmed" href="https://twitter.com/neuronworks">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="icon-sosmed" href="https://www.facebook.com/neuronworks/">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                    <div class="footer">
+                        <a href="https://www.neuronworks.co.id" style="text-align: center;">www.neuronworks.co.id</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <img class="gambar" src="img/Starlid-illustration.svg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detail Data</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="output"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            var fullname = document.getElementById("fullname").value;
+            var email = document.getElementById("email").value;
+            var nomortelepon = document.getElementById("nomortelepon").value;
+            var lowongan = document.getElementById("lowongan").value;
+            var posisi = document.getElementById("posisi").value;
+
+            var output = document.getElementById("output");
+            output.innerHTML = "Fullname: " + fullname + "<br>Email: " + email + "<br>Nomor Telepon: " + nomortelepon + "<br>Lowongan: " + lowongan + "<br>Posisi: " + posisi;
+        }
+        document.getElementById("btnSubmit").addEventListener("click", openModal);
+
+        var select = document.getElementById("lowongan");
+        var options = ["MOBILE DEVELOPER", "WEB DEVELOPER", "DATABASE DEVELOPER", "PUBLIC RELATION", "HUMAN CAPITAL MANAGEMENT"];
+
+        for (var i = 0; i < options.length; i++) {
+            var opt = options[i];
+            var el = document.createElement("option");
+            el.textContent = opt;
+            el.value = opt;
+            select.appendChild(el);
+        }
+
+        var select = document.getElementById("posisi");
+        var options = ["BANDUNG", "JAKARTA"];
+
+        for (var i = 0; i < options.length; i++) {
+            var opt = options[i];
+            var el = document.createElement("option");
+            el.textContent = opt;
+            el.value = opt;
+            select.appendChild(el);
+        }
+
+    </script>
+</body>
+
+</html>
